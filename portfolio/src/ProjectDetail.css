@@ -1,0 +1,359 @@
+/* ── Nav ──────────────────────────────────────────────────── */
+
+.detail-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+}
+
+.back-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 14px;
+  color: var(--text-h);
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover {
+    background: var(--hover-bg);
+  }
+}
+
+.detail-breadcrumb {
+  font-size: 14px;
+  color: var(--text);
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+  }
+}
+
+/* ── Hero model ───────────────────────────────────────────── */
+
+.detail-hero {
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-model-hero {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  display: block;
+}
+
+.detail-model-hero:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.model-360-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  pointer-events: none;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.detail-model-hero:hover .model-360-overlay {
+  opacity: 1;
+}
+
+.model-360-icon {
+  font-size: 20px;
+  display: inline-block;
+  animation: spin-hint 3s ease-in-out infinite;
+}
+
+@keyframes spin-hint {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(180deg); }
+}
+
+.detail-model-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-coming {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Body layout ──────────────────────────────────────────── */
+
+.detail-body {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  box-sizing: border-box;
+
+  @media (max-width: 840px) {
+    grid-template-columns: 1fr;
+    padding: 32px 20px;
+    gap: 32px;
+  }
+}
+
+/* ── Main content ─────────────────────────────────────────── */
+
+.detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.detail-main h1 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: var(--text-h);
+  margin: 0 0 20px;
+}
+
+.detail-description {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0 0 40px;
+}
+
+.detail-section {
+  margin-bottom: 40px;
+}
+
+.detail-section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-process {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-process li {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* ── Photo grid ───────────────────────────────────────────── */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.photo-item {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.gallery-model-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  &:hover .gallery-360-overlay {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.gallery-model-canvas {
+  position: relative;
+}
+
+.gallery-360-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  pointer-events: none;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.gallery-360-icon {
+  font-size: 15px;
+  display: inline-block;
+  animation: spin-hint 3s ease-in-out infinite;
+}
+
+.gallery-model-loading {
+  aspect-ratio: 4/3;
+  width: 100%;
+}
+
+.gallery-item-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  padding: 6px 10px;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.photo-slot {
+  aspect-ratio: 4/3;
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--border);
+  transition: border-color 0.15s, color 0.15s;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
+.photo-slot-icon {
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.photo-slot-label {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+/* ── Sidebar specs ────────────────────────────────────────── */
+
+.detail-sidebar {
+  align-self: start;
+  position: sticky;
+  top: 72px;
+}
+
+.detail-specs {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  background: var(--card-bg);
+}
+
+.detail-specs h3 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+
+.detail-specs dl {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.spec-row dt {
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.spec-row dd {
+  margin: 0;
+  color: var(--text-h);
+  font-weight: 500;
+  text-align: right;
+}
+
+/* ── Not found ────────────────────────────────────────────── */
+
+.detail-not-found {
+  padding: 80px 32px;
+  text-align: center;
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+}
