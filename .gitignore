@@ -1,0 +1,30 @@
+# Dependencies / virtualenvs
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Build output (regenerated; portfolio is published to the gh-pages branch)
+dist/
+dist-ssr/
+
+# Personal Claude config / memory (not for publishing)
+.claude/
+
+# Large downloaded installers & archives (exceed GitHub's 100 MB limit)
+*.dmg
+*.exe
+*.AppImage
+*.msi
+*.pkg
+*.deb
+AllSketchupFilesThatWereDrive.zip
+
+# OS / editor junk
+.DS_Store
+*.local
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea/
