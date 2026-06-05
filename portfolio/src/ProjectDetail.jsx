@@ -86,7 +86,13 @@ export default function ProjectDetail() {
   const { title, accent } = project
   const { longDescription, tags, model, specs, process, images = [], gallery = [], cameraPull, modelRotation } = disciplineData
 
-  const filledSlots = images.length + gallery.length
+  // The 3D models are CAD drawings, so the 3D Printing pages show "Photos coming
+  // soon" instead of the models until real print photos are available.
+  const isPrinting = discipline === 'printing'
+  const heroModel = isPrinting ? null : model
+  const visibleGallery = isPrinting ? [] : gallery
+
+  const filledSlots = images.length + visibleGallery.length
   const placeholdersNeeded = Math.max(0, 4 - filledSlots)
 
   return (
@@ -102,8 +108,8 @@ export default function ProjectDetail() {
       </nav>
 
       <header className="detail-hero">
-        {model ? (
-          <ModelHero model={model} accent={accent} projectId={projectId} discipline={discipline} cameraPull={cameraPull} modelRotation={modelRotation} />
+        {heroModel ? (
+          <ModelHero model={heroModel} accent={accent} projectId={projectId} discipline={discipline} cameraPull={cameraPull} modelRotation={modelRotation} />
         ) : (
           <div
             className="detail-model-fallback"
@@ -136,12 +142,12 @@ export default function ProjectDetail() {
           )}
 
           <section className="detail-section">
-            <h2>{gallery.length > 0 ? 'Design Iterations' : 'Photos'}</h2>
+            <h2>{visibleGallery.length > 0 ? 'Design Iterations' : 'Photos'}</h2>
             <div className="photo-grid">
               {images.map((src, i) => (
                 <img key={`img-${i}`} src={src} alt={`${title} — photo ${i + 1}`} className="photo-item" />
               ))}
-              {gallery.map((item, i) =>
+              {visibleGallery.map((item, i) =>
                 item.type === 'model' ? (
                   <GalleryModelItem key={`gal-${i}`} src={item.src} label={item.label} accent={accent} />
                 ) : (
