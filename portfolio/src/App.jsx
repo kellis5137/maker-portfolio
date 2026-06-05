@@ -24,9 +24,11 @@ function PlaceholderImage({ accent }) {
 
 function DisciplineCard({ projectId, discipline, data, accent }) {
   const { description, tags, model, cameraPull = 1, modelRotation } = data
+  // 3D Printing cards show a "Photo coming soon" placeholder until real photos are added
+  const showModel = model && discipline !== 'printing'
   return (
     <div className="project-card">
-      {model ? (
+      {showModel ? (
         <div className="card-image card-image--model">
           <Suspense fallback={<PlaceholderImage accent={accent} />}>
             <ModelViewer url={model} accent={accent} static cameraPull={cameraPull} modelRotation={modelRotation} />
