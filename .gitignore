@@ -12,6 +12,9 @@ dist-ssr/
 # Personal Claude config / memory (not for publishing)
 .claude/
 
+# Personal project source files — kept local only, not published
+projects/
+
 # Large downloaded installers & archives (exceed GitHub's 100 MB limit)
 *.dmg
 *.exe
