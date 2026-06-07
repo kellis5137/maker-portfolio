@@ -1,14 +1,15 @@
 import { Suspense, lazy } from 'react'
 import { HashRouter, Routes, Route, Link } from 'react-router-dom'
 import { projects } from './data'
+import { withBase } from './basePath'
 import ProjectDetail from './ProjectDetail'
 import ViewerPage from './ViewerPage'
 import './App.css'
 
 const ModelViewer = lazy(() => import('./ModelViewer'))
 
-const DISCIPLINE_LABELS = { cad: 'CAD', printing: '3D Printing', metalwork: 'Metalwork' }
-const DISCIPLINES = ['cad', 'printing', 'metalwork']
+const DISCIPLINE_LABELS = { cad: 'CAD', printing: '3D Printing', metalwork: 'Metalwork', restoration: 'Restoration', woodworking: 'Woodworking' }
+const DISCIPLINES = ['cad', 'printing', 'metalwork', 'restoration', 'woodworking']
 
 function PlaceholderImage({ accent }) {
   return (
@@ -23,12 +24,18 @@ function PlaceholderImage({ accent }) {
 }
 
 function DisciplineCard({ projectId, discipline, data, accent }) {
-  const { description, tags, model, cameraPull = 1, modelRotation } = data
-  // 3D Printing cards show a "Photo coming soon" placeholder until real photos are added
+  const { description, tags, model, cameraPull = 1, modelRotation, images = [] } = data
+  const coverImage = images[0]
+  // Prefer a real photo when one exists; otherwise fall back to the 3D model
+  // (CAD/Metalwork) or a "Photo coming soon" placeholder.
   const showModel = model && discipline !== 'printing'
   return (
     <div className="project-card">
-      {showModel ? (
+      {coverImage ? (
+        <div className="card-image card-image--photo">
+          <img src={withBase(coverImage)} alt={`${DISCIPLINE_LABELS[discipline]} preview`} loading="lazy" />
+        </div>
+      ) : showModel ? (
         <div className="card-image card-image--model">
           <Suspense fallback={<PlaceholderImage accent={accent} />}>
             <ModelViewer url={model} accent={accent} static cameraPull={cameraPull} modelRotation={modelRotation} />

@@ -1,11 +1,12 @@
 import { Suspense, lazy } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { projects } from './data'
+import { withBase } from './basePath'
 import './ProjectDetail.css'
 
 const ModelViewer = lazy(() => import('./ModelViewer'))
 
-const DISCIPLINE_LABELS = { cad: 'CAD Work', printing: '3D Printing', metalwork: 'Metalwork' }
+const DISCIPLINE_LABELS = { cad: 'CAD Work', printing: '3D Printing', metalwork: 'Metalwork', restoration: 'Restoration', woodworking: 'Woodworking' }
 
 function ModelHero({ model, accent, projectId, discipline, cameraPull = 1, modelRotation }) {
   const navigate = useNavigate()
@@ -86,10 +87,12 @@ export default function ProjectDetail() {
   const { title, accent } = project
   const { longDescription, tags, model, specs, process, images = [], gallery = [], cameraPull, modelRotation } = disciplineData
 
-  // The 3D models are CAD drawings, so the 3D Printing pages show "Photos coming
-  // soon" instead of the models until real print photos are available.
+  // The 3D models are CAD drawings, so the 3D Printing pages show photos instead
+  // of the models. When there's no model to show as the hero, use the first photo.
   const isPrinting = discipline === 'printing'
   const heroModel = isPrinting ? null : model
+  const heroImage = !heroModel && images.length > 0 ? images[0] : null
+  const gridImages = heroImage ? images.slice(1) : images
   const visibleGallery = isPrinting ? [] : gallery
 
   const filledSlots = images.length + visibleGallery.length
@@ -110,6 +113,10 @@ export default function ProjectDetail() {
       <header className="detail-hero">
         {heroModel ? (
           <ModelHero model={heroModel} accent={accent} projectId={projectId} discipline={discipline} cameraPull={cameraPull} modelRotation={modelRotation} />
+        ) : heroImage ? (
+          <div className="detail-photo-hero">
+            <img src={withBase(heroImage)} alt={`${title} — ${DISCIPLINE_LABELS[discipline]}`} />
+          </div>
         ) : (
           <div
             className="detail-model-fallback"
@@ -144,14 +151,14 @@ export default function ProjectDetail() {
           <section className="detail-section">
             <h2>{visibleGallery.length > 0 ? 'Design Iterations' : 'Photos'}</h2>
             <div className="photo-grid">
-              {images.map((src, i) => (
-                <img key={`img-${i}`} src={src} alt={`${title} — photo ${i + 1}`} className="photo-item" />
+              {gridImages.map((src, i) => (
+                <img key={`img-${i}`} src={withBase(src)} alt={`${title} — photo ${i + 1}`} className="photo-item" loading="lazy" />
               ))}
               {visibleGallery.map((item, i) =>
                 item.type === 'model' ? (
                   <GalleryModelItem key={`gal-${i}`} src={item.src} label={item.label} accent={accent} />
                 ) : (
-                  <img key={`gal-${i}`} src={item.src} alt={item.label} className="photo-item" />
+                  <img key={`gal-${i}`} src={withBase(item.src)} alt={item.label} className="photo-item" loading="lazy" />
                 )
               )}
               {PLACEHOLDER_LABELS.slice(0, placeholdersNeeded).map(label => (
