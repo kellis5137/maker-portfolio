@@ -3,7 +3,7 @@ export const projects = [
     id: 'ac-bracket',
     title: 'MGB AC Bracket',
     accent: '#1a3a5c',
-    summary: 'AC mounting bracket for the 1980 MGB — 10+ printed prototypes before metal fabrication.',
+    summary: 'The MGB was never available from the factory with air conditioning. In a state like Maryland, AC has become a necessity. The goal: design and build a set of brackets that allow a universal AC compressor to be mounted onto the engine.',
     cad: {
       description: 'Custom AC mounting brackets designed in FreeCAD to add air conditioning to a classic car.',
       longDescription:
@@ -18,12 +18,6 @@ export const projects = [
         'Prototype Material': 'PLA',
         'Car': '1980 MGB',
       },
-      process: [
-        'Started with rough measurements of the AC compressor mounting face and engine bay clearances.',
-        'Printed each revision in PLA on the Ender 3 V3 SE to test fit before committing to metal.',
-        'Revised clearance geometry through revisions 6–10 to clear the adjacent drive belt path.',
-        'Final design handed off for metal fabrication.',
-      ],
       images: [],
       gallery: [
         { type: 'model', src: '/models/ac-bracket-rev2v4.stl', label: 'Bracket 1' },
@@ -51,12 +45,6 @@ export const projects = [
         'Revisions printed': '10+',
         'Design': 'FreeCAD (own)',
       },
-      process: [
-        'Early revisions (1–5) established the basic bolt pattern and compressor mounting face.',
-        'Revisions 6–10 focused on clearance geometry — each printed, installed, and measured before the next change.',
-        'Confirmed the final fit on the real engine before the CAD drawings were sent out for metal cutting.',
-        'The PLA prototypes confirmed that all bolt holes lined up and the belt path was clear before committing to metal.',
-      ],
       images: [
         '/images/ac-bracket/printing/IMG_8236.jpg',
         '/images/ac-bracket/printing/IMG_8255.jpg',
@@ -86,11 +74,6 @@ export const projects = [
         'Source': 'FreeCAD CAD drawings',
         'Car': '1980 MGB',
       },
-      process: [
-        'Finalized the bracket geometry in FreeCAD and exported the cut drawings.',
-        'Sent the drawings to SendCutSend to have the parts cut from metal.',
-        'Completed the remaining fabrication — bending, finishing, and hardware — to build up the assembled brackets.',
-      ],
       images: [
         '/images/ac-bracket/metalwork/IMG_8327.jpg',
         '/images/ac-bracket/metalwork/IMG_8328.jpg',
