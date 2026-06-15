@@ -34,6 +34,7 @@ export const projects = [
         { type: 'model', src: '/models/ac-bracket.stl', label: 'Bracket 6' },
         { type: 'model', src: '/models/ac-bracket-rev6.stl', label: 'Bracket 7' },
         { type: 'model', src: '/models/ac-bracket-rev7.stl', label: 'Bracket 8' },
+        { type: 'model', src: '/models/ac-bracket1-v3.stl', label: 'Bracket 9' },
       ],
     },
     printing: {
