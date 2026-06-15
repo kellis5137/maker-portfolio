@@ -111,9 +111,9 @@ function Home() {
           <div className="hero-content">
             <h1>CAD, 3D Printing<br />&amp; Metalwork</h1>
             <p className="hero-lead">
-              Hands-on maker with experience in FreeCAD mechanical design, FDM printing,
-              and metal fabrication. Focused on functional parts — restoration components,
-              custom brackets, and one-off pieces that actually fit.
+              The MGB was never available from the factory with air conditioning. In a state
+              like Maryland, AC has become a necessity. The goal: design and build a set of
+              brackets that allow a universal AC compressor to be mounted onto the engine.
             </p>
             <div className="hero-skills">
               {['FreeCAD', 'OrcaSlicer / Cura', 'FDM Printing', 'Metalwork', 'MGB Restoration'].map(s => (
