@@ -265,8 +265,6 @@ export const projects = [
         { type: 'model', src: '/models/speedo-gear-20t.stl', label: '20-tooth gear' },
         { type: 'model', src: '/models/speedo-gear-25t.stl', label: '25-tooth gear' },
         { type: 'model', src: '/models/speedo-gears-together.stl', label: 'Gears assembled', rotation: [-Math.PI / 2, 0, 0] },
-        { type: 'model', src: '/models/speedo-body-01.stl', label: 'Speedometer body — Part 1' },
-        { type: 'model', src: '/models/speedo-body-02.stl', label: 'Speedometer body — Part 2' },
       ],
     },
     restoration: {
