@@ -108,13 +108,10 @@ export const projects = [
         'Prototype Material': 'PLA',
         'Car': '1980 MGB',
       },
-      process: [
-        'Measured the universal bottle and the original mounting points to design an adapting bracket.',
-        'Identified a roomier location in the engine bay and positioned the bracket to suit.',
-        'Iterated the bracket in FreeCAD to align the bottle, hose routing, and mounting holes.',
-        'Printed each revision in PLA to verify fit before finalizing the geometry.',
-      ],
       images: [],
+      gallery: [
+        { type: 'model', src: '/models/overflow-bottle.stl', label: 'Overflow bottle bracket' },
+      ],
     },
     printing: {
       cameraPull: 2,
@@ -129,11 +126,6 @@ export const projects = [
         'Material': 'PLA',
         'Design': 'FreeCAD (own)',
       },
-      process: [
-        'Printed each bracket revision in PLA on the Ender 3 V3 SE.',
-        'Test-fit the universal bottle on the printed bracket to confirm it sat correctly in the new location.',
-        'Checked mounting-hole alignment and hose routing against the engine bay before finalizing.',
-      ],
       images: [
         '/images/overflow-bottle/printing/IMG_9682.jpg',
         '/images/overflow-bottle/printing/IMG_9683.jpg',
@@ -158,12 +150,6 @@ export const projects = [
         'Material': 'PLA',
         'Layer height': '0.20 mm',
       },
-      process: [
-        'Started with a straight base knob (knob_custom.FCStd) to get the thread and diameter right.',
-        'Added curved geometry in knob_custom_curved for a more ergonomic palm fit.',
-        'Refined edge fillets and top surface curvature across knob_modify_1 and knob_modify_2.',
-        'Printed and test-fit on the actual shifter between each major revision.',
-      ],
       images: [],
     },
     printing: {
@@ -180,11 +166,6 @@ export const projects = [
         'Layer height': '0.20 mm',
         'Design': 'FreeCAD (own)',
       },
-      process: [
-        'First prints tested the internal thread diameter — adjusted model by 0.2 mm for a snug fit on the shifter.',
-        'Printed at 0.20 mm layer height for surface quality on the curved top section.',
-        'Hand-sanded the parting line after printing for a cleaner feel in use.',
-      ],
       images: [],
     },
   },
@@ -206,12 +187,6 @@ export const projects = [
         'Layer height': '0.20 mm',
         'Car': '1980 MGB',
       },
-      process: [
-        'Measured existing pump body, mounting points on the engine block, and the aftermarket pump dimensions.',
-        'Designed the relocation bracket parametrically to allow adjustment if mounting points shifted during the build.',
-        'Designed the adapter to bridge the two mounting interfaces — original MGB hole pattern on one side, aftermarket pump on the other.',
-        'Printed at 0.20 mm and validated thread engagement and hole spacing against both components.',
-      ],
       images: [],
     },
     printing: {
@@ -227,11 +202,6 @@ export const projects = [
         'Layer height': '0.20 mm',
         'Design': 'FreeCAD (own)',
       },
-      process: [
-        'Printed both parts at 0.20 mm for dimensional accuracy on the mounting holes.',
-        'Test-fit confirmed hole spacing within 0.3 mm — within bolt clearance tolerance.',
-        'Thread engagement checked with M6 bolts; no re-drill required.',
-      ],
       images: [
         '/images/washer-system/printing/IMG_9681.jpg',
       ],
@@ -290,12 +260,6 @@ export const projects = [
         'Gears': '20t / 25t',
         'Car': '1980 MGB',
       },
-      process: [
-        'Modeled the speedometer housing through several revisions to match the original gauge.',
-        'Generated involute spur gears (20- and 25-tooth) for the drive train.',
-        'Test-printed gears and bodies on the Ender 3 V3 SE to verify meshing and bearing fit.',
-        'Refined tooth profiles and clearances based on printed test fits.',
-      ],
       images: [],
       gallery: [
         { type: 'model', src: '/models/speedo-gear-20t.stl', label: '20-tooth gear' },
