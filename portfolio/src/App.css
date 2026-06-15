@@ -154,6 +154,40 @@ nav ul a {
   border: 1px solid var(--accent-border);
 }
 
+/* ── About ────────────────────────────────────────────────── */
+
+.about-section {
+  padding: 80px 24px;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about-content h1 {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.8px;
+  line-height: 1.1;
+  color: var(--text-h);
+  margin: 0 0 28px;
+
+  @media (max-width: 640px) {
+    font-size: 32px;
+  }
+}
+
+.about-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0 0 20px;
+}
+
+.about-content .hero-skills {
+  justify-content: flex-start;
+  margin-top: 28px;
+}
+
 /* ── Sections ─────────────────────────────────────────────── */
 
 .portfolio-section {

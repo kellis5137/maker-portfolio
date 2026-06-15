@@ -108,7 +108,7 @@ export default function ProjectDetail() {
           ← Back
         </button>
         <span className="detail-breadcrumb">
-          <a href={`/#${projectId}`}>{title}</a>
+          <Link to="/" state={{ scrollTo: projectId }}>{title}</Link>
           {' / '}{DISCIPLINE_LABELS[discipline]}
         </span>
       </nav>

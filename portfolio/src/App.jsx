@@ -1,5 +1,5 @@
-import { Suspense, lazy } from 'react'
-import { HashRouter, Routes, Route, Link } from 'react-router-dom'
+import { Suspense, lazy, useEffect } from 'react'
+import { HashRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
 import { projects } from './data'
 import { withBase } from './basePath'
 import ProjectDetail from './ProjectDetail'
@@ -87,12 +87,12 @@ function SiteHeader() {
       <nav className="nav-inner">
         <Link to="/" className="site-name">K. Ellis</Link>
         <ul>
-          <li><a href="/#about">About</a></li>
+          <li><Link to="/about">About</Link></li>
           <li className="nav-dropdown">
             <span className="nav-dropdown-trigger">Projects</span>
             <ul className="nav-dropdown-menu">
               {projects.map(p => (
-                <li key={p.id}><a href={`/#${p.id}`}>{p.title}</a></li>
+                <li key={p.id}><Link to="/" state={{ scrollTo: p.id }}>{p.title}</Link></li>
               ))}
             </ul>
           </li>
@@ -103,6 +103,19 @@ function SiteHeader() {
 }
 
 function Home() {
+  const location = useLocation()
+
+  // HashRouter owns the URL hash, so in-page anchors can't use it. Instead, links
+  // navigate to "/" with a `scrollTo` state and we scroll to that section here.
+  useEffect(() => {
+    const id = location.state?.scrollTo
+    if (!id) return
+    const t = setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    }, 50)
+    return () => clearTimeout(t)
+  }, [location])
+
   return (
     <>
       <SiteHeader />
@@ -136,11 +149,51 @@ function Home() {
   )
 }
 
+function AboutPage() {
+  return (
+    <>
+      <SiteHeader />
+      <main>
+        <section className="about-section">
+          <div className="about-content">
+            <h1>About</h1>
+            <p>
+              By trade I'm a software engineer, but at heart I've always been a maker —
+              one whose materials happen to be wood, metal, and electronics as much as code.
+            </p>
+            <p>
+              I got my hands dirty early: working with wood and metal at 13, and restoring
+              my first car at 17. Decades of tinkering later, the philosophy is simple — if
+              it runs on gas or electricity, rolls on wheels, turns an engine, or can be built
+              out of wood, I'm confident I can handle it.
+            </p>
+            <p>
+              This site is where I document that work — the CAD, 3D printing, and metalwork
+              behind the parts and projects I build.
+            </p>
+            <div className="hero-skills">
+              {['Software Engineering', 'Woodworking', 'Metalwork', 'Electronics', '3D Printing', 'Car Restoration'].map(s => (
+                <span key={s}>{s}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer className="site-footer">
+        <div className="footer-inner">
+          <p>K. Ellis &mdash; CAD, 3D Printing &amp; Metalwork Portfolio</p>
+        </div>
+      </footer>
+    </>
+  )
+}
+
 export default function App() {
   return (
     <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/project/:projectId/:discipline" element={<ProjectDetail />} />
         <Route path="/project/:projectId/:discipline/3d" element={<ViewerPage />} />
         <Route path="/viewer" element={<ViewerPage />} />
