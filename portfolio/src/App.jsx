@@ -124,9 +124,9 @@ function Home() {
           <div className="hero-content">
             <h1>CAD, 3D Printing<br />&amp; Metalwork</h1>
             <p className="hero-lead">
-              Hands-on maker with experience in FreeCAD mechanical design, FDM printing,
-              and metal fabrication. Focused on functional parts — restoration components,
-              custom brackets, and one-off pieces that actually fit.
+              Hands-on maker with experience in wood, metal, and polymer-based fabrication.
+              Focused on functional parts — restoration components, custom parts, and
+              one-off pieces.
             </p>
             <div className="hero-skills">
               {['FreeCAD', 'OrcaSlicer / Cura', 'FDM Printing', 'Metalwork', 'MGB Restoration'].map(s => (
