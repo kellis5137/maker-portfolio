@@ -5,9 +5,9 @@ export const projects = [
     accent: '#1a3a5c',
     summary: 'AC mounting bracket for the 1980 MGB — 10+ printed prototypes before metal fabrication.',
     cad: {
-      description: 'Modified AC mounting bracket for improved fitment in the MGB engine bay — iterated through multiple versions.',
+      description: 'Custom AC mounting brackets designed in FreeCAD to add air conditioning to a classic car.',
       longDescription:
-        'The AC bracket went through at least ten printed iterations (revisions 6–10 are on record) before reaching a final fitment. Each version addressed specific clearance issues discovered when test-fitting against the engine block, accessory drive, and adjacent components.',
+        'A classic car like the MGB has no factory provision for air conditioning, so there are no off-the-shelf brackets to mount a compressor. A complete set of custom brackets was designed from scratch in FreeCAD to fit the compressor into the engine bay. The parametric models were refined through multiple revisions to clear the engine, accessory drive, and surrounding components.',
       tags: ['FreeCAD', 'Mechanical', 'MGB'],
       model: '/models/ac-bracket-combined.stl',
       modelRotation: [0, 0, Math.PI / 2],
@@ -38,9 +38,9 @@ export const projects = [
       ],
     },
     printing: {
-      description: 'Printed and test-fit AC bracket revisions 6 through 10 on the Ender 3 V3 SE, iterating until correct clearance was achieved.',
+      description: 'Before any metal fabrication, 3D-printed versions of the brackets were tested on the real engine.',
       longDescription:
-        'The AC bracket required the most print iterations of any MGB part — at least 10 revisions. Each printed version was physically installed in the engine bay to check clearances against the belt path, water pump, and adjacent hardware before the next design change was made.',
+        'Before committing to metal fabrication, each version of the brackets was 3D printed in PLA and test-fit on the actual engine. Printing inexpensive prototypes made it possible to check the compressor mounting, bolt alignment, and clearances against real hardware — catching fit problems early and feeding the corrections back into the CAD before anything was cut in metal.',
       tags: ['PLA', 'Own Design', 'Ender 3 V3 SE', 'MGB'],
       model: '/models/ac-bracket-combined.stl',
       modelRotation: [0, 0, Math.PI / 2],
@@ -54,8 +54,8 @@ export const projects = [
       process: [
         'Early revisions (1–5) established the basic bolt pattern and compressor mounting face.',
         'Revisions 6–10 focused on clearance geometry — each printed, installed, and measured before the next change.',
-        'Final printed version was used as a template for metal fabrication.',
-        'The PLA prototype confirmed that all bolt holes lined up and the belt path was clear before cutting metal.',
+        'Confirmed the final fit on the real engine before the CAD drawings were sent out for metal cutting.',
+        'The PLA prototypes confirmed that all bolt holes lined up and the belt path was clear before committing to metal.',
       ],
       images: [
         '/images/ac-bracket/printing/IMG_8236.jpg',
@@ -77,18 +77,19 @@ export const projects = [
       ],
     },
     metalwork: {
-      description: 'Metal version of the CAD-designed AC bracket — fabricated and fitted to the MGB engine bay.',
+      description: 'With the CAD designs complete, the drawings were sent to SendCutSend for cutting, then fabricated into the finished brackets.',
       longDescription:
-        'After 10+ printed PLA prototypes confirmed the geometry, the AC bracket was fabricated in metal. The printed prototype served as the direct template, ensuring the metal version fit correctly on the first attempt.',
-      tags: ['Metalwork', 'MGB', 'AC'],
+        'Once the CAD designs were finalized and validated with printed prototypes, the bracket drawings were sent out to SendCutSend to be cut from metal. From there, the remaining fabrication was completed — bending, finishing, and hardware — to build up the final assembled brackets.',
+      tags: ['Metalwork', 'MGB', 'AC', 'SendCutSend'],
       specs: {
-        'Material': 'TBD',
-        'Template': 'PLA prototype (10+ revisions)',
+        'Cut by': 'SendCutSend',
+        'Source': 'FreeCAD CAD drawings',
         'Car': '1980 MGB',
       },
       process: [
-        'Final PLA print used as the direct template for cutting and bending.',
-        'Bolt holes transferred from the printed template.',
+        'Finalized the bracket geometry in FreeCAD and exported the cut drawings.',
+        'Sent the drawings to SendCutSend to have the parts cut from metal.',
+        'Completed the remaining fabrication — bending, finishing, and hardware — to build up the assembled brackets.',
       ],
       images: [
         '/images/ac-bracket/metalwork/IMG_8327.jpg',
