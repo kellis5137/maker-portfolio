@@ -253,54 +253,6 @@ export const projects = [
     },
   },
   {
-    id: 'm8-test-plate',
-    title: 'M8 Test Plate',
-    accent: '#5c4a2a',
-    summary: 'Calibration print for dialing in M8 hole diameters on the Ender 3 V3 SE before committing to final designs.',
-    cad: {
-      cameraPull: 2,
-      description: 'Test plate for validating M8 thread fitment and print tolerances before committing to a final design.',
-      longDescription:
-        "Before finalizing any design that uses M8 hardware, a dedicated test plate was printed to dial in the correct hole diameter for the printer's actual dimensional accuracy. The plate includes multiple M8 holes at slightly different diameters to find the best fit.",
-      tags: ['FreeCAD', 'Tolerance Testing'],
-      model: '/models/m8-test-plate.stl',
-      specs: {
-        'Tool': 'FreeCAD',
-        'Material': 'PLA',
-        'Print time': '2 h 21 min',
-        'Printer': 'Ender 3 V3 SE',
-        'Purpose': 'M8 tolerance validation',
-      },
-      process: [
-        'Designed a simple flat plate in FreeCAD with a grid of M8 clearance and thread holes at ±0.1 mm tolerance steps.',
-        'Printed the full plate and tested M8 bolts and threaded inserts in each hole.',
-        'Identified the optimal diameter offset for the Ender 3 V3 SE and applied it to subsequent designs.',
-      ],
-      images: [],
-    },
-    printing: {
-      cameraPull: 2,
-      description: 'Printed the M8 tolerance test plate (~2h 21m print) to validate hole sizing before final part production.',
-      longDescription:
-        'A calibration print specifically for dialing in M8 hole diameters on the Ender 3 V3 SE. The results from this plate were applied to all subsequent MGB designs that use M8 hardware.',
-      tags: ['PLA', 'Own Design', 'Calibration'],
-      model: '/models/m8-test-plate.stl',
-      specs: {
-        'Printer': 'Ender 3 V3 SE',
-        'Slicer': 'OrcaSlicer',
-        'Material': 'PLA',
-        'Print time': '2 h 21 min',
-        'Purpose': 'M8 tolerance calibration',
-      },
-      process: [
-        'Printed the full test plate in a single run.',
-        'Tested M8 bolts in each hole diameter variant — found 8.4 mm nominal gave the best clearance fit on this printer.',
-        'Applied the offset to all subsequent FreeCAD models before slicing.',
-      ],
-      images: [],
-    },
-  },
-  {
     id: 'engine-replacement',
     title: 'MGB Engine Replacement',
     accent: '#6a3a2a',
@@ -340,7 +292,34 @@ export const projects = [
     id: 'mgb-speedometer',
     title: 'MGB Speedometer',
     accent: '#4a4a2a',
-    summary: 'Refurbishing the original MGB speedometer as part of the gauge restoration.',
+    summary: 'Refurbishing the original MGB speedometer and designing replacement gears and housing in CAD.',
+    cad: {
+      description: 'Designed replacement speedometer internals in FreeCAD — the gear train and housing for the MGB speedometer.',
+      longDescription:
+        'Modeled the speedometer drive gears and housing in FreeCAD, iterating on tooth counts and fit. The gear set (20- and 25-tooth involute gears) was developed alongside several revisions of the speedometer body, with test prints used to check meshing and bearing fit before finalizing.',
+      tags: ['FreeCAD', 'Involute Gears', 'MGB', 'Mechanical'],
+      model: '/models/speedo-gear-20t.stl',
+      specs: {
+        'Tool': 'FreeCAD',
+        'Components': 'Gear train + housing',
+        'Gears': '20t / 25t',
+        'Car': '1972 MGB',
+      },
+      process: [
+        'Modeled the speedometer housing through several revisions to match the original gauge.',
+        'Generated involute spur gears (20- and 25-tooth) for the drive train.',
+        'Test-printed gears and bodies on the Ender 3 V3 SE to verify meshing and bearing fit.',
+        'Refined tooth profiles and clearances based on printed test fits.',
+      ],
+      images: [],
+      gallery: [
+        { type: 'model', src: '/models/speedo-gear-20t.stl', label: '20-tooth gear' },
+        { type: 'model', src: '/models/speedo-gear-25t.stl', label: '25-tooth gear' },
+        { type: 'model', src: '/models/speedo-gears-together.stl', label: 'Gears assembled', rotation: [-Math.PI / 2, 0, 0] },
+        { type: 'model', src: '/models/speedo-body-01.stl', label: 'Speedometer body — Part 1' },
+        { type: 'model', src: '/models/speedo-body-02.stl', label: 'Speedometer body — Part 2' },
+      ],
+    },
     restoration: {
       description: 'Cleaned up and serviced the original MGB speedometer head as part of restoring the instrument cluster.',
       longDescription:

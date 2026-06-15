@@ -32,20 +32,21 @@ function ModelHero({ model, accent, projectId, discipline, cameraPull = 1, model
   )
 }
 
-function GalleryModelItem({ src, label, accent }) {
+function GalleryModelItem({ src, label, accent, rotation }) {
   const navigate = useNavigate()
+  const viewerState = { url: src, title: label, accent, rotation }
   return (
     <div
       className="gallery-model-item"
       role="button"
       tabIndex={0}
-      onClick={() => navigate('/viewer', { state: { url: src, title: label, accent } })}
-      onKeyDown={e => e.key === 'Enter' && navigate('/viewer', { state: { url: src, title: label, accent } })}
+      onClick={() => navigate('/viewer', { state: viewerState })}
+      onKeyDown={e => e.key === 'Enter' && navigate('/viewer', { state: viewerState })}
       aria-label={`Click to view ${label} in 360°`}
     >
       <div className="gallery-model-canvas">
         <Suspense fallback={<div className="gallery-model-loading" style={{ background: `linear-gradient(135deg, ${accent}44, ${accent}11)` }} />}>
-          <ModelViewer url={src} accent={accent} height={180} static />
+          <ModelViewer url={src} accent={accent} height={180} static modelRotation={rotation} />
         </Suspense>
         <div className="gallery-360-overlay">
           <span className="gallery-360-icon">↻</span>
@@ -92,7 +93,9 @@ export default function ProjectDetail() {
   const isPrinting = discipline === 'printing'
   const heroModel = isPrinting ? null : model
   const heroImage = !heroModel && images.length > 0 ? images[0] : null
-  const gridImages = heroImage ? images.slice(1) : images
+  // Show every photo in the grid — including the one used as the hero banner —
+  // so visitors who don't realize the banner is clickable still see it below.
+  const gridImages = images
   const visibleGallery = isPrinting ? [] : gallery
 
   const filledSlots = images.length + visibleGallery.length
@@ -156,7 +159,7 @@ export default function ProjectDetail() {
               ))}
               {visibleGallery.map((item, i) =>
                 item.type === 'model' ? (
-                  <GalleryModelItem key={`gal-${i}`} src={item.src} label={item.label} accent={accent} />
+                  <GalleryModelItem key={`gal-${i}`} src={item.src} label={item.label} accent={accent} rotation={item.rotation} />
                 ) : (
                   <img key={`gal-${i}`} src={withBase(item.src)} alt={item.label} className="photo-item" loading="lazy" />
                 )

@@ -21,7 +21,7 @@ export default function ViewerPage() {
   const title = stateModel?.title ?? projectEntry?.title
   const accent = stateModel?.accent ?? projectEntry?.accent ?? '#2a4a6a'
   const cameraPull = disciplineData?.cameraPull ?? 1
-  const modelRotation = disciplineData?.modelRotation ?? [0, 0, 0]
+  const modelRotation = stateModel?.rotation ?? disciplineData?.modelRotation ?? [0, 0, 0]
 
   if (!url) {
     return (
