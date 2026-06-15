@@ -3,7 +3,7 @@ export const projects = [
     id: 'ac-bracket',
     title: 'MGB AC Bracket',
     accent: '#1a3a5c',
-    summary: 'AC mounting bracket for the 1972 MGB — 10+ printed prototypes before metal fabrication.',
+    summary: 'AC mounting bracket for the 1980 MGB — 10+ printed prototypes before metal fabrication.',
     cad: {
       description: 'Modified AC mounting bracket for improved fitment in the MGB engine bay — iterated through multiple versions.',
       longDescription:
@@ -16,7 +16,7 @@ export const projects = [
         'Iterations': '10+',
         'Final Material': 'Metal (fabricated)',
         'Prototype Material': 'PLA',
-        'Car': '1972 MGB',
+        'Car': '1980 MGB',
       },
       process: [
         'Started with rough measurements of the AC compressor mounting face and engine bay clearances.',
@@ -81,7 +81,7 @@ export const projects = [
       specs: {
         'Material': 'TBD',
         'Template': 'PLA prototype (10+ revisions)',
-        'Car': '1972 MGB',
+        'Car': '1980 MGB',
       },
       process: [
         'Final PLA print used as the direct template for cutting and bending.',
@@ -119,7 +119,7 @@ export const projects = [
         'Tool': 'FreeCAD',
         'Revisions': '5 (OverflowBottle through OverflowBottle5)',
         'Prototype Material': 'PLA',
-        'Car': '1972 MGB',
+        'Car': '1980 MGB',
       },
       process: [
         'Measured available envelope in the engine bay and identified the target mounting location.',
@@ -219,7 +219,7 @@ export const projects = [
         'Parts': 'Relocation bracket + adapter',
         'Material': 'PLA prototype',
         'Layer height': '0.20 mm',
-        'Car': '1972 MGB',
+        'Car': '1980 MGB',
       },
       process: [
         'Measured existing pump body, mounting points on the engine block, and the aftermarket pump dimensions.',
@@ -256,14 +256,14 @@ export const projects = [
     id: 'engine-replacement',
     title: 'MGB Engine Replacement',
     accent: '#6a3a2a',
-    summary: 'Full engine rebuild and replacement for the 1972 MGB — bare-block teardown, refinish, and reinstall.',
+    summary: 'Full engine rebuild and replacement for the 1980 MGB — bare-block teardown, refinish, and reinstall.',
     restoration: {
       description: 'Rebuilt and refinished the MGB four-cylinder engine — from a stripped bare block to a freshly painted unit back in the bay.',
       longDescription:
         'The original MGB engine was pulled and stripped down to the bare block, then cleaned, rebuilt, and refinished before going back into the car. The work spanned the full drivetrain — block, head, accessory drive, and engine-bay wiring — as part of the larger restoration.',
       tags: ['MGB', 'Engine', 'Restoration', 'Mechanical'],
       specs: {
-        'Car': '1972 MGB',
+        'Car': '1980 MGB',
         'Scope': 'Bare-block rebuild + reinstall',
         'Finish': 'Repainted block',
       },
@@ -303,7 +303,7 @@ export const projects = [
         'Tool': 'FreeCAD',
         'Components': 'Gear train + housing',
         'Gears': '20t / 25t',
-        'Car': '1972 MGB',
+        'Car': '1980 MGB',
       },
       process: [
         'Modeled the speedometer housing through several revisions to match the original gauge.',
@@ -326,7 +326,7 @@ export const projects = [
         'The original speedometer was removed and serviced as part of bringing the MGB instrument cluster back to working condition — checking the mechanism and odometer before refitting to the dash.',
       tags: ['MGB', 'Instruments', 'Restoration'],
       specs: {
-        'Car': '1972 MGB',
+        'Car': '1980 MGB',
         'Component': 'Speedometer head',
       },
       images: [
