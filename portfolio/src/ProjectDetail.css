@@ -209,6 +209,12 @@
   border: 1px solid var(--border);
 }
 
+/* Videos show the whole frame (no crop) — letterboxed within the tile. */
+video.photo-item {
+  object-fit: contain;
+  background: #000;
+}
+
 .gallery-model-item {
   border: 1px solid var(--border);
   border-radius: 8px;
