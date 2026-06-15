@@ -8,6 +8,8 @@ const ModelViewer = lazy(() => import('./ModelViewer'))
 
 const DISCIPLINE_LABELS = { cad: 'CAD Work', printing: '3D Printing', metalwork: 'Metalwork', restoration: 'Restoration', woodworking: 'Woodworking' }
 
+const isVideo = src => /\.(mp4|webm|mov)$/i.test(src)
+
 function ModelHero({ model, accent, projectId, discipline, cameraPull = 1, modelRotation }) {
   const navigate = useNavigate()
   return (
@@ -154,9 +156,20 @@ export default function ProjectDetail() {
           <section className="detail-section">
             <h2>{visibleGallery.length > 0 ? 'Design Iterations' : 'Photos'}</h2>
             <div className="photo-grid">
-              {gridImages.map((src, i) => (
-                <img key={`img-${i}`} src={withBase(src)} alt={`${title} — photo ${i + 1}`} className="photo-item" loading="lazy" />
-              ))}
+              {gridImages.map((src, i) =>
+                isVideo(src) ? (
+                  <video
+                    key={`img-${i}`}
+                    src={withBase(src)}
+                    className="photo-item"
+                    controls
+                    playsInline
+                    preload="metadata"
+                  />
+                ) : (
+                  <img key={`img-${i}`} src={withBase(src)} alt={`${title} — photo ${i + 1}`} className="photo-item" loading="lazy" />
+                )
+              )}
               {visibleGallery.map((item, i) =>
                 item.type === 'model' ? (
                   <GalleryModelItem key={`gal-${i}`} src={item.src} label={item.label} accent={accent} rotation={item.rotation} />

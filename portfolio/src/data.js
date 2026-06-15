@@ -87,6 +87,7 @@ export const projects = [
         '/images/ac-bracket/metalwork/IMG_8386.jpg',
         '/images/ac-bracket/metalwork/IMG_8411.jpg',
         '/images/ac-bracket/metalwork/IMG_9576.jpg',
+        '/videos/ac-bracket-metal.mp4',
       ],
     },
   },
@@ -129,6 +130,7 @@ export const projects = [
       images: [
         '/images/overflow-bottle/printing/IMG_9682.jpg',
         '/images/overflow-bottle/printing/IMG_9683.jpg',
+        '/videos/ac-bracket-metal.mp4',
       ],
     },
   },
