@@ -124,7 +124,7 @@ function Home() {
           <div className="hero-content">
             <h1>CAD, 3D Printing<br />&amp; Metalwork</h1>
             <p className="hero-lead">
-              Hands-on maker with experience in wood, metal, and polymer-based fabrication.
+              Hands-on maker with experience in woodworking, metalwork, and 3D printing.
               Focused on functional parts — restoration components, custom parts, and
               one-off pieces.
             </p>
