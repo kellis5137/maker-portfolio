@@ -158,8 +158,9 @@ function AboutPage() {
           <div className="about-content">
             <h1>About</h1>
             <p>
-              By trade I'm a software engineer, but at heart I've always been a maker —
-              one whose materials happen to be wood, metal, and electronics as much as code.
+              I'm Keith Ellis — by trade a software engineer, but at heart I've always been
+              a maker, one whose materials happen to be wood, metal, and electronics as much
+              as code.
             </p>
             <p>
               I got my hands dirty early: working with wood and metal at 13, and restoring
@@ -175,6 +176,12 @@ function AboutPage() {
               {['Software Engineering', 'Woodworking', 'Metalwork', 'Electronics', '3D Printing', 'Car Restoration'].map(s => (
                 <span key={s}>{s}</span>
               ))}
+            </div>
+            <div className="about-contact">
+              <h2>Contact</h2>
+              <p>
+                <a href="mailto:kellis5137@murena.io">kellis5137@murena.io</a>
+              </p>
             </div>
           </div>
         </section>

@@ -188,6 +188,33 @@ nav ul a {
   margin-top: 28px;
 }
 
+.about-contact {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.about-contact h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0 0 8px;
+}
+
+.about-contact p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.about-contact a {
+  color: var(--accent);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 /* ── Sections ─────────────────────────────────────────────── */
 
 .portfolio-section {
