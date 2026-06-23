@@ -1,26 +1,46 @@
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+name: Build and deploy to GitHub Pages
 
-  - name: Use Node.js 18
-    uses: actions/setup-node@v4
-    with:
-      node-version: '18'
-      cache: 'npm'
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-  - name: Install dependencies
-    run: |
-      cd portfolio
-      npm ci
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-  - name: Build
-    run: |
-      cd portfolio
-      npm run build
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: true
 
-  - name: Deploy to GitHub Pages
-    uses: peaceiris/actions-gh-pages@v3
-    with:
-      github_token: ${{ secrets.GITHUB_TOKEN }}
-      publish_dir: ./portfolio/dist
-      publish_branch: gh-pages
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          cd portfolio
+          npm ci
+
+      - name: Build
+        run: |
+          cd portfolio
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./portfolio/dist
+          publish_branch: gh-pages
