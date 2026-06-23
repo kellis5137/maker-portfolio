@@ -123,7 +123,7 @@ function Home() {
         <section id="about" className="hero-section">
           <div className="hero-content">
             <h1>CAD, 3D Printing<br />&amp; Metalwork</h1>
-            <h2>This site is always a work in progres.</h2>
+            <h2>This site is always a work in progress.</h2>
             <p className="hero-lead">
               Hands-on maker with experience in woodworking, metalwork, and 3D printing.
               Focused on functional parts — restoration components, custom parts, and
